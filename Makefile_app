@@ -1,0 +1,28 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile_app                                       :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: xjose <xjose@student.42.fr>                +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2020/04/08 19:07:10 by jwon              #+#    #+#              #
+#    Updated: 2024/07/05 13:44:41 by xjose            ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+NAME		= libftcm.a
+
+SRC				= ./libx/windows/*.c \
+				  ./libx/windows/events/*.c \
+				  ./libx/unity/*.c 
+LIBFT			= ./libx/libft/*.c
+
+MINILIBX				= ./libx/minilibx
+
+		
+FLAGS		= -Wall -Werror -Wextra
+
+CP			= gcc
+
+all:
+	$(CP) -o app main.c $(LIBFT) $(SRC) -I ./includes -L$(MINILIBX) -lmlx -lXext -lX11 -lm
