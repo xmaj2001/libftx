@@ -6,7 +6,7 @@
 /*   By: xjose <xjose@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 11:58:52 by xjose             #+#    #+#             */
-/*   Updated: 2024/07/03 13:41:30 by xjose            ###   ########.fr       */
+/*   Updated: 2024/07/05 20:17:59 by xjose            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ void		ft_move(t_transform *t, t_basic_controller bc, int key);
 void		ft_clear_window(t_window *window);
 void		ft_destroy_image(t_window *window, void *img);
 void		ft_destroy_image(t_window *window, void *img);
+void		ft_create_map(t_window *wind, t_map map);
 void		*ft_create_imag(t_window *window, t_image *img, bool put);
 void		ft_hook(t_window window, t_event event, int (*funct)(),
 				void *param);

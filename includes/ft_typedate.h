@@ -6,7 +6,7 @@
 /*   By: xjose <xjose@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 08:56:52 by xjose             #+#    #+#             */
-/*   Updated: 2024/07/02 12:48:31 by xjose            ###   ########.fr       */
+/*   Updated: 2024/07/05 19:40:26 by xjose            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,6 +106,17 @@ typedef struct s_transform
 	t_size			size;
 	t_point			rotation;
 }					t_transform;
+
+typedef struct s_map
+{
+	char			**map;
+	string			exit_path;
+	string			jaba_path;
+	string			block_path;
+	string			empty_path;
+	string			player_path;
+	t_size			size_items;
+}					t_map;
 
 typedef struct s_event
 {

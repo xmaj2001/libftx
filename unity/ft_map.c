@@ -6,7 +6,7 @@
 /*   By: xjose <xjose@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 18:45:10 by xjose             #+#    #+#             */
-/*   Updated: 2024/07/05 13:49:22 by xjose            ###   ########.fr       */
+/*   Updated: 2024/07/06 13:07:24 by xjose            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,53 +36,48 @@ char	**ft_getmap(int fd)
 	return (ft_split(ft_read(fd), '\n'));
 }
 
-// void	ft_put_imag_in_map(char *line, t_window *wind, t_image *ig)
-// {
-// 	int	x;
+void	ft_put_imag_in_map(char *line, t_window *wind, t_map map, t_image *ig)
+{
+	int	x;
 
-// 	x = 0;
-// 	while (line[x])
-// 	{
-// 		if (line[x] == '1')
-// 		{
-// 			ig->path = "./assets/other_1.xpm";
-// 			ft_create_imag(wind, &ig, 1);
-// 		}
-// 		else if (line[x] == '0')
-// 		{
-// 			ig->path = "./assets/other_0.xpm";
-// 			ft_create_imag(wind, &ig, 1);
-// 		}
-// 		else if (line[x] == 'C')
-// 		{
-// 			ig->path = "./assets/tile_coin.xpm";
-// 			ft_create_imag(wind, &ig, 1);
-// 		}
-// 		ig->x += ig->width;
-// 		x++;
-// 	}
-// }
+	ig->width = map.size_items.width;
+	ig->height = map.size_items.height;
+	while (line[x])
+	{
+		if (line[x] == '1')
+		{
+			ig->path = map.block_path;
+			ft_create_imag(wind, ig, 1);
+		}
+		else if (line[x] == '0')
+		{
+			ig->path = map.empty_path;
+			ft_create_imag(wind, ig, 1);
+		}
+		else if (line[x] == 'C')
+		{
+			ig->path = map.jaba_path;
+			ft_create_imag(wind, ig, 1);
+		}
+		ig->x += map.size_items.width;
+		x++;
+	}
+}
 
-// void	ft_creat_map(t_window *wind, int size)
-// {
-// 	char	**map;
-// 	int		i;
-// 	int		x;
-// 	t_image	ig;
+void	ft_create_map(t_window *wind, t_map map)
+{
+	t_image	ig;
+	int		x;
+	char	*line;
 
-// 	ig.width = size;
-// 	ig.height = size;
-// 	ig.x = 0;
-// 	ig.y = 0;
-// 	while (map[i])
-// 	{
-// 		x = 0;
-// 		ig.x = 0;
-// 		ft_put_imag_in_map(map[i], wind, &ig);
-// 		ig.y += 100;
-// 		i++;
-// 	}
-// }
+	while (*map.map)
+	{
+		line = *map.map;
+		ft_put_imag_in_map(line, wind, map, &ig);
+		ig.y += map.size_items.height;
+		map.map++;
+	}
+}
 
 t_size	ft_get_size_map_win(char **map, int size_img)
 {
