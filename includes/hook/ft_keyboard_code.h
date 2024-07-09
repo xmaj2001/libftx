@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_key_code.h                                      :+:      :+:    :+:   */
+/*   ft_keycode.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: xjose <xjose@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 12:45:06 by xjose             #+#    #+#             */
-/*   Updated: 2024/06/29 14:00:23 by xjose            ###   ########.fr       */
+/*   Updated: 2024/07/08 12:37:20 by xjose            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef KEY_CODE_H
+#ifndef FT_KEYBOARD_CODE_H
 
-# define KEY_CODE_H
+# define FT_KEYBOARD_CODE_H
 
 # define KEY_A 97
 # define KEY_B 98

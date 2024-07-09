@@ -5,17 +5,30 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: xjose <xjose@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/26 12:45:06 by xjose             #+#    #+#             */
-/*   Updated: 2024/06/29 14:42:01 by xjose            ###   ########.fr       */
+/*   Created: 2024/07/08 13:05:09 by xjose             #+#    #+#             */
+/*   Updated: 2024/07/08 13:25:29 by xjose            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#define KeyPress_EVENT (t_event) {2, 1L << 0 }
-#define KeyRelease_EVENT (t_event){ 3, 1L << 1}
 
-#define MousePress_EVENT (t_event) {4, 1L << 2 }
-#define MouseRelease_EVENT (t_event){ 5, 1L << 3}
+typedef struct s_event
+{
+	int				code;
+	int				mask;
+}					t_event;
 
-#define MouseMove_EVENT (t_event){ 6, 1L << 6}
-#define MouseEnter_EVENT (t_event){ 7, 1L << 4}
-#define MouseLeave_EVENT (t_event){ 8, 1L << 5}
+# define KEY_PRESS_EVENT \
+    (t_event) { 2, 1L << 0 }
+# define KEY_RELEASE_EVENT \
+    (t_event) { 3, 1L << 1 }
+
+# define MOUSE_PRESS \
+    (t_event) { 4, 1L << 2 }
+# define MOUSE_RELEASE \
+    (t_event) { 5, 1L << 3 }
+# define MOUSE_MOVE \
+    (t_event) { 6, 1L << 6 }
+# define MOUSE_ENTER \
+    (t_event) { 7, 1L << 4 }
+# define MOUSE_LEAVE \
+    (t_event) { 8, 1L << 5 }

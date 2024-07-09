@@ -6,19 +6,47 @@
 /*   By: xjose <xjose@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 08:56:52 by xjose             #+#    #+#             */
-/*   Updated: 2024/07/05 19:40:26 by xjose            ###   ########.fr       */
+/*   Updated: 2024/07/08 17:44:00 by xjose            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef TYPEDATE_H
 
 # define TYPEDATE_H
-# define string char *
+# define stringg char *
 # define false 0
 # define true 1
 # define bool int
 
-enum				e_color
+typedef struct s_size
+{
+	int	width;
+	int	height;
+}		t_size;
+
+typedef struct s_point
+{
+	int	x;
+	int	y;
+}		t_point;
+
+typedef struct s_postion
+{
+	int	x;
+	int	y;
+	int	z;
+}		t_postion;
+
+enum	e_postion
+{
+	NUNE = 0,
+	LEFT = 1,
+	CENTER = 2,
+	RIGTH = 3,
+	DOWN = 4
+};
+
+enum	e_color
 {
 	WHITE = 0xFFFFFF,
 	BLACK = 0x000000,
@@ -54,83 +82,5 @@ enum				e_color
 	DARK_ORANGE = 0xFF8C00,
 	DARK_PURPLE = 0x6A0DAD
 };
-
-typedef struct s_size
-{
-	int				width;
-	int				height;
-}					t_size;
-
-typedef struct s_point
-{
-	int				x;
-	int				y;
-}					t_point;
-
-typedef struct s_postion
-{
-	int				x;
-	int				y;
-	int				z;
-}					t_postion;
-
-typedef struct s_key_action
-{
-	int				key;
-	void			(*action)(void);
-}					t_key_action;
-
-typedef struct s_window
-{
-	string			title;
-	int				width;
-	int				height;
-	enum e_color	background;
-	void			*mlx;
-	void			*win;
-}					t_window;
-
-typedef struct s_image
-{
-	string			path;
-	void			*date;
-	int				width;
-	int				height;
-	int				x;
-	int				y;
-}					t_image;
-
-typedef struct s_transform
-{
-	t_postion		position;
-	t_size			size;
-	t_point			rotation;
-}					t_transform;
-
-typedef struct s_map
-{
-	char			**map;
-	string			exit_path;
-	string			jaba_path;
-	string			block_path;
-	string			empty_path;
-	string			player_path;
-	t_size			size_items;
-}					t_map;
-
-typedef struct s_event
-{
-	int				code;
-	int				mask;
-}					t_event;
-
-typedef struct s_basic_controller
-{
-	int				key_up;
-	int				key_down;
-	int				key_left;
-	int				key_rigth;
-	int				speed;
-}					t_basic_controller;
 
 #endif

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libftcm.h                                          :+:      :+:    :+:   */
+/*   libftx.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: xjose <xjose@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 11:44:35 by xjose             #+#    #+#             */
-/*   Updated: 2024/07/05 13:40:44 by xjose            ###   ########.fr       */
+/*   Updated: 2024/07/08 13:39:48 by xjose            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,16 @@
 
 # define LIBFTMASTER_H
 
-//# include "./includes/*.h"
 # include  "./minilibx/mlx.h" // 0
 # include  "./libft/libft.h" // 0
-# include "./includes/ft_key_code.h"  // 1
-# include "./includes/ft_typedate.h"  // 2
-# include "./includes/ft_events.h"  // 3
-# include "./includes/ft_prototype.h" // 4
+# include "./includes/ft_typedate.h"
+# include "./includes/ft_window.h"
+# include "./includes/hook/ft_events.h"
+# include "./includes/hook/ft_hook.h"
+# include "./includes/hook/ft_keyboard_code.h"
+# include "./includes/hook/ft_mouse_code.h"
+# include "./includes/ft_image.h"
+# include "./includes/ft_map.h"
 # include <stdio.h>
 # include <stdlib.h>
 

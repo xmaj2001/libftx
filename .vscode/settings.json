@@ -1,0 +1,9 @@
+{
+    "files.associations": {
+        "*.ejs": "html",
+        "ft_mouse_code.h": "c",
+        "ft_keyboard_code.h": "c",
+        "ft_image.h": "c",
+        "libftx.h": "c"
+    }
+}

@@ -6,7 +6,7 @@
 /*   By: xjose <xjose@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 09:01:17 by xjose             #+#    #+#             */
-/*   Updated: 2024/07/05 13:48:53 by xjose            ###   ########.fr       */
+/*   Updated: 2024/07/08 13:38:57 by xjose            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,37 @@ void	ft_start_window(t_window *window)
 	mlx_loop(window->mlx);
 }
 
-t_window	*ft_create_windows(t_window *window)
+void	ft_clear_window(t_window *window)
 {
+	mlx_clear_window(window->mlx, window->win);
+	free(window);
+}
+
+t_window	*ft_create_window(stringg title, int width, int height,
+		enum e_color backgorund)
+{
+	t_window	*window;
+
+	window = (t_window *)malloc(sizeof(t_window) * 1);
+	if (window == NULL)
+		return (NULL);
 	window->mlx = mlx_init();
 	if (window->mlx == NULL)
+	{
+		free(window);
 		return (NULL);
+	}
+	window->title = title;
+	window->width = width;
+	window->height = height;
+	window->background = backgorund;
 	window->win = mlx_new_window(window->mlx, window->width, window->height,
 			window->title);
 	if (window->win == NULL)
+	{
+		free(window);
 		return (NULL);
+	}
 	ft_set_color(window, window->background);
 	return (window);
 }

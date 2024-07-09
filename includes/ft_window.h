@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_transform.c                                     :+:      :+:    :+:   */
+/*   ft_window.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: xjose <xjose@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/27 13:23:27 by xjose             #+#    #+#             */
-/*   Updated: 2024/07/05 16:51:40 by xjose            ###   ########.fr       */
+/*   Created: 2024/06/27 11:58:52 by xjose             #+#    #+#             */
+/*   Updated: 2024/07/08 13:37:01 by xjose            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libftx.h"
 
-void	ft_move(t_transform *t, t_basic_controller bc, int key)
+typedef struct s_window
 {
-	if (bc.key_up == key)
-		t->position.x -= bc.speed;
-	if (bc.key_down == key)
-		t->position.x += bc.speed;
-	if (bc.key_left == key)
-		t->position.y -= bc.speed;
-	if (bc.key_rigth == key)
-		t->position.y += bc.speed;
-}
+	stringg			title;
+	int				width;
+	int				height;
+	enum e_color	background;
+	void			*mlx;
+	void			*win;
+}					t_window;
+
+void		ft_set_color(t_window *window, enum e_color cor);
+void		ft_start_window(t_window *window);
+void		ft_clear_window(t_window *window);
+t_window	*ft_create_window(stringg title, int width, int height,
+				enum e_color backgorund);
