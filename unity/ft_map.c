@@ -6,7 +6,7 @@
 /*   By: xjose <xjose@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 18:45:10 by xjose             #+#    #+#             */
-/*   Updated: 2024/07/09 14:08:13 by xjose            ###   ########.fr       */
+/*   Updated: 2024/07/09 14:48:01 by xjose            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,15 +74,15 @@ static void	ft_put_map(t_window *win, stringg line, t_map map, t_point p)
 	while (line[++i])
 	{
 		if (line[i] == '1')
-			ig = ft_setdraw(win, (t_size){map.igw, map.igh}, p.x, p.y, CYAN);
+			ig = ft_setdraw(win, (t_size){map.igw, map.igh}, p.x, p.y, WHITE);
 		else if (line[i] == '0')
 			ig = ft_setdraw(win, (t_size){map.igw, map.igh}, p.x, p.y, BLACK);
 		else if (line[i] == 'C')
-			ig = ft_setdraw(win, (t_size){map.igw, map.igh}, p.x, p.y, LIGHT_YELLOW);
+			ig = ft_setdraw(win, (t_size){map.igw, map.igh}, p.x, p.y, GOLD);
 		else if (line[i] == 'P')
 			ig = ft_setdraw(win, (t_size){map.igw, map.igh}, p.x, p.y, RED);
 		else if (line[i] == 'E')
-			ig = ft_setdraw(win, (t_size){map.igw, map.igh}, p.x, p.y, GREEN);
+			ig = ft_setdraw(win, (t_size){map.igw, map.igh}, p.x, p.y, DARK_GRAY);
 		p.x += map.igw + 1;
 		ft_destroy_image(win, ig);
 	}
