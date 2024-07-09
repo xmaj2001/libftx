@@ -36,14 +36,9 @@ Exemplo:
 
 int main(void)
 {
-    t_window window;
-
-    window.title = "LIBFTX";
-    window.background = DARK_PURPLE;
-    window.width = 1000;
-    window.height = 600;
-    ft_create_windows(&window);
-    ft_start_window(&window);
+	t_window	*window;
+	window = ft_create_window("LIBFTX", 1000, 800, BLACK);
+	ft_start_window(window);
     return (0);
 }
 

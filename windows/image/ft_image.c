@@ -6,7 +6,7 @@
 /*   By: xjose <xjose@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 11:44:22 by xjose             #+#    #+#             */
-/*   Updated: 2024/07/08 18:19:40 by xjose            ###   ########.fr       */
+/*   Updated: 2024/07/09 21:17:58 by xjose            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	*ft_put_image(t_window *window, stringg path, int width, int height,
 	return (ig);
 }
 
-t_point	ft_postion_image(t_window *window, t_size size, enum e_postion postion)
+t_point	ft_postion(t_window *window, t_size size, enum e_postion postion)
 {
 	t_point point;
 
