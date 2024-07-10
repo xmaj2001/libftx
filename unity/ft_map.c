@@ -6,14 +6,13 @@
 /*   By: xjose <xjose@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 18:45:10 by xjose             #+#    #+#             */
-/*   Updated: 2024/07/10 11:11:31 by xjose            ###   ########.fr       */
+/*   Updated: 2024/07/10 18:23:15 by xjose            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libftx.h"
-#include <fcntl.h>
 
-void	ft_put_img_map(t_window *win, stringg line, t_map map, t_point p)
+void	ft_put_img_map(t_window *win, stringg line, t_mapi map, t_point p)
 {
 	int	i;
 
@@ -34,57 +33,7 @@ void	ft_put_img_map(t_window *win, stringg line, t_map map, t_point p)
 	}
 }
 
-void	ft_put_map2(t_window *win, stringg line, t_map2 mp, t_point p, bool a)
-{
-	int		i;
-	void	*ig;
-
-	i = -1;
-	while (line[++i])
-	{
-		if (line[i] == '1')
-			ig = ft_setdraw(win, (t_size){mp.igw, mp.igh}, p.x, p.y, mp.block);
-		else if (line[i] == '0')
-			ig = ft_setdraw(win, (t_size){mp.igw, mp.igh}, p.x, p.y, mp.empty);
-		else if (line[i] == 'C')
-			ig = ft_setdraw(win, (t_size){mp.igw, mp.igh}, p.x, p.y, mp.jaba);
-		else if (line[i] == 'P')
-			ig = ft_setdraw(win, (t_size){mp.igw, mp.igh}, p.x, p.y, mp.player);
-		else if (line[i] == 'E')
-			ig = ft_setdraw(win, (t_size){mp.igw, mp.igh}, p.x, p.y, mp.exit);
-		p.x += mp.igw + 1;
-		if (a)
-			usleep(5500);
-		ft_destroy_image(win, ig);
-	}
-}
-
-void	ft_inc_map2(t_window *window, t_map2 map, enum e_postion postion,
-		bool a)
-{
-	t_point	point;
-	t_point	ps;
-	t_size	size;
-	int		idx;
-	int		i;
-
-	idx = 0;
-	size = ft_get_size_map(map.map);
-	size.width *= map.igw;
-	size.height *= map.igh;
-	ps = ft_postion(window, size, postion);
-	point.y = ps.y;
-	while (*map.map)
-	{
-		i = 0;
-		point.x = ps.x;
-		ft_put_map2(window, *map.map, map, point, a);
-		map.map++;
-		point.y += map.igh;
-	}
-}
-
-void	ft_inc_map(t_window *window, t_map map, enum e_postion postion)
+void	ft_inc_img_map(t_window *window, t_mapi map, enum e_postion postion)
 {
 	t_point	point;
 	t_point	ps;
@@ -106,4 +55,77 @@ void	ft_inc_map(t_window *window, t_map map, enum e_postion postion)
 		map.map++;
 		point.y += map.igh;
 	}
+}
+
+void	ft_put_map(t_window *win, stringg line, t_map mp, t_point p, bool a)
+{
+	int		i;
+	void	*ig;
+
+	i = -1;
+	while (line[++i])
+	{
+		if (line[i] == '1')
+			ig = ft_setdraw(win, (t_size){mp.igw, mp.igh}, p.x, p.y, mp.block);
+		else if (line[i] == '0')
+			ig = ft_setdraw(win, (t_size){mp.igw, mp.igh}, p.x, p.y, mp.empty);
+		else if (line[i] == 'C')
+			ig = ft_setdraw(win, (t_size){mp.igw, mp.igh}, p.x, p.y, mp.jaba);
+		else if (line[i] == 'P')
+			ig = ft_setdraw(win, (t_size){mp.igw, mp.igh}, p.x, p.y, mp.player);
+		else if (line[i] == 'E' && mp.items.jaba == 0)
+			ig = ft_setdraw(win, (t_size){mp.igw, mp.igh}, p.x, p.y, mp.exit);
+		else if (line[i] == 'E')
+			ig = ft_setdraw(win, (t_size){mp.igw, mp.igh}, p.x, p.y, mp.block);
+		p.x += mp.igw + 1;
+		if (a)
+			usleep(5500);
+		ft_destroy_image(win, ig);
+	}
+}
+
+void	ft_inc_map(t_window *window, t_map map, enum e_postion postion,
+		bool a)
+{
+	t_point	point;
+	t_point	ps;
+	t_size	size;
+	int		idx;
+	int		i;
+
+	idx = 0;
+	size = ft_get_size_map(map.map);
+	size.width *= map.igw;
+	size.height *= map.igh;
+	ps = ft_postion(window, size, postion);
+	point.y = ps.y;
+	while (*map.map)
+	{
+		i = 0;
+		point.x = ps.x;
+		ft_put_map(window, *map.map, map, point, a);
+		map.map++;
+		point.y += map.igh;
+	}
+}
+
+int ft_count_item(char **map, char item)
+{
+	t_point	point;
+    int i;
+
+	point.y = 0;
+    i = 0;
+	while (map[point.y])
+	{
+		point.x = 0;
+		while (map[point.y][point.x])
+		{
+            if (map[point.y][point.x] == item)
+                i++;
+            point.x++;
+        }
+		point.y++;
+	}
+	return (i);
 }

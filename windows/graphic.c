@@ -6,7 +6,7 @@
 /*   By: xjose <xjose@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 12:31:41 by xjose             #+#    #+#             */
-/*   Updated: 2024/07/10 11:11:04 by xjose            ###   ########.fr       */
+/*   Updated: 2024/07/10 18:01:54 by xjose            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,11 +71,8 @@ void	ft_set_font(t_window *wind, stringg font)
 	mlx_set_font(mlx, win, font);
 }
 
-void	ft_put_text(t_window *win, stringg texto, enum e_postion postion,
+void	ft_put_text(t_window *win, stringg texto, t_point point,
 		enum e_color cor)
 {
-	t_point	point;
-
-	point = ft_postion(win, (t_size){20, 20}, postion);
 	mlx_string_put(win->mlx, win->win, point.x, point.y, cor, texto);
 }

@@ -6,7 +6,7 @@
 /*   By: xjose <xjose@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 11:58:52 by xjose             #+#    #+#             */
-/*   Updated: 2024/07/10 11:12:00 by xjose            ###   ########.fr       */
+/*   Updated: 2024/07/10 15:41:28 by xjose            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,6 @@ void		*ft_put_image(t_window *window, stringg path, int width, int height,
 				int x, int y);
 void		*ft_setdraw(t_window *window, t_size size, int px, int py,
 				enum e_color cor);
-void		ft_put_text(t_window *win, stringg texto, enum e_postion postion,
+void		ft_put_text(t_window *win, stringg texto, t_point point,
 				enum e_color cor);
 void		ft_set_font(t_window *win, stringg font);

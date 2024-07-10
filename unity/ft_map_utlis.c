@@ -6,11 +6,12 @@
 /*   By: xjose <xjose@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 20:16:18 by xjose             #+#    #+#             */
-/*   Updated: 2024/07/10 11:11:29 by xjose            ###   ########.fr       */
+/*   Updated: 2024/07/10 18:01:10 by xjose            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libftx.h"
+#include <fcntl.h>
 
 char	*ft_read(int fd)
 {
@@ -35,12 +36,22 @@ char	*ft_read(int fd)
 	map[x] = '\0';
 	return (ft_strdup(map));
 }
+void	ft_get_item_map(t_map	*map)
+{
+	map->items.jaba = ft_count_item(map->map, 'C');
+	map->items.player = ft_count_item(map->map, 'P');
+	map->items.exit = ft_count_item(map->map, 'E');
+	map->items.block = ft_count_item(map->map, '1');
+	map->items.empty = ft_count_item(map->map, '0');
+}
 
-char	**ft_getmap(int fd)
+t_map	*ft_getmap(int fd, t_window *window, t_map	*map)
 {
 	if (fd < 0)
 		return (NULL);
-	return (ft_split(ft_read(fd), '\n'));
+	map->map = ft_split(ft_read(fd), '\n');
+	ft_get_item_map(map);
+	return (map);
 }
 
 t_size	ft_get_size_map_win(char **map, int size_img)

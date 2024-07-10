@@ -6,7 +6,7 @@
 /*   By: xjose <xjose@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 11:44:35 by xjose             #+#    #+#             */
-/*   Updated: 2024/07/10 11:12:58 by xjose            ###   ########.fr       */
+/*   Updated: 2024/07/10 17:56:12 by xjose            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 # include "./includes/hook/ft_mouse_code.h"
 # include "./includes/ft_image.h"
 # include "./includes/ft_map.h"
+# include "./includes/ft_player.h"
 # include <stdio.h>
 # include <stdlib.h>
 
