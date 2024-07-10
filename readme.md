@@ -37,7 +37,9 @@ Exemplo:
 int main(void)
 {
 	t_window	*window;
+	
 	window = ft_create_window("LIBFTX", 1000, 800, BLACK);
+	ft_destroy_event(window, close_window, window);
 	ft_start_window(window);
     return (0);
 }
