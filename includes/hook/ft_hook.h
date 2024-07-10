@@ -6,7 +6,7 @@
 /*   By: xjose <xjose@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 13:05:09 by xjose             #+#    #+#             */
-/*   Updated: 2024/07/08 14:22:31 by xjose            ###   ########.fr       */
+/*   Updated: 2024/07/10 13:34:00 by xjose            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,3 +30,4 @@ void		ft_mouse_release(t_window *window, int (*funct)(), void *param);
 void		ft_mouse_enter(t_window *window, int (*funct)(), void *param);
 void		ft_mouse_leave(t_window *window, int (*funct)(), void *param);
 void		ft_mouse_move(t_window *window, int (*funct)(), void *param);
+void		ft_destroy_event(t_window *window, int (*funct)(), void *param);

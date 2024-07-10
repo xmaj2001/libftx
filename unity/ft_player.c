@@ -6,12 +6,11 @@
 /*   By: xjose <xjose@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 20:18:15 by xjose             #+#    #+#             */
-/*   Updated: 2024/07/09 22:54:56 by xjose            ###   ########.fr       */
+/*   Updated: 2024/07/10 13:40:31 by xjose            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libftx.h"
-
 
 static char	ft_move_player_x(char **map, t_point point, int move)
 {
@@ -19,6 +18,8 @@ static char	ft_move_player_x(char **map, t_point point, int move)
 	{
 		if (map[point.y][point.x + 1] != '1')
 		{
+			if (map[point.y][point.x + 1] == 'E')
+				exit(0);
 			map[point.y][point.x] = '0';
 			map[point.y][point.x + 1] = 'P';
 		}
@@ -27,6 +28,8 @@ static char	ft_move_player_x(char **map, t_point point, int move)
 	{
 		if (map[point.y][point.x - 1] != '1')
 		{
+			if (map[point.y][point.x - 1] == 'E')
+				exit(0);
 			map[point.y][point.x] = '0';
 			map[point.y][point.x - 1] = 'P';
 		}
@@ -40,6 +43,8 @@ static char	ft_move_player_y(char **map, t_point point, int move)
 	{
 		if (map[point.y + 1][point.x] != '1')
 		{
+			if (map[point.y + 1][point.x] == 'E')
+				exit(0);
 			map[point.y][point.x] = '0';
 			map[point.y + 1][point.x] = 'P';
 		}
@@ -48,6 +53,8 @@ static char	ft_move_player_y(char **map, t_point point, int move)
 	{
 		if (map[point.y - 1][point.x] != '1')
 		{
+			if (map[point.y - 1][point.x] == 'E')
+				exit(0);
 			map[point.y][point.x] = '0';
 			map[point.y - 1][point.x] = 'P';
 		}

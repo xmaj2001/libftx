@@ -6,7 +6,7 @@
 /*   By: xjose <xjose@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 20:16:18 by xjose             #+#    #+#             */
-/*   Updated: 2024/07/09 20:38:05 by xjose            ###   ########.fr       */
+/*   Updated: 2024/07/10 11:11:29 by xjose            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,8 @@ t_size	ft_get_size_map_win(char **map, int size_img)
 
 t_size	ft_get_size_map(char **map)
 {
-	t_size size;
-	int i;
+	t_size	size;
+	int		i;
 
 	i = 0;
 	while (map[i])

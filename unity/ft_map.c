@@ -6,7 +6,7 @@
 /*   By: xjose <xjose@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 18:45:10 by xjose             #+#    #+#             */
-/*   Updated: 2024/07/09 21:18:31 by xjose            ###   ########.fr       */
+/*   Updated: 2024/07/10 11:11:31 by xjose            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,8 @@ void	ft_put_map2(t_window *win, stringg line, t_map2 mp, t_point p, bool a)
 	}
 }
 
-void	ft_inc_map2(t_window *window, t_map2 map, enum e_postion postion, bool a)
+void	ft_inc_map2(t_window *window, t_map2 map, enum e_postion postion,
+		bool a)
 {
 	t_point	point;
 	t_point	ps;
